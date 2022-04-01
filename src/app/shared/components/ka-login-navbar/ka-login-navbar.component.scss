@@ -1,0 +1,17 @@
+@import 'variables';
+
+.logoAndina {
+  width: 60%;
+  max-width: 300px;
+}
+
+.navbar {
+  background-color: $light-grey;
+  a {
+    font-size: 1.6rem;
+  }
+}
+
+::ng-deep .navbar-expand .navbar-nav .dropdown-menu {
+  width: 150px !important;
+}

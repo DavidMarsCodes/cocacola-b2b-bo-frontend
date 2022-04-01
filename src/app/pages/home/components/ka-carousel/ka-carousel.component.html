@@ -1,0 +1,8 @@
+<ngb-carousel *ngIf="images">
+  <ng-template ngbSlide *ngFor="let image of images; index as i">
+    <div class="picsum-img-wrapper">
+      <img [src]="images[i].desktop" alt="Banner slider" class="w-100 d-none d-md-block" />
+      <img [src]="images[i].mobile" alt="Banner slider" class="w-100 d-block d-md-none" />
+    </div>
+  </ng-template>
+</ngb-carousel>

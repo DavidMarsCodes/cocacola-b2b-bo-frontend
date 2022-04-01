@@ -1,0 +1,24 @@
+<div class="container" [class]="isMobile ? 'mobile' : 'desktop ka-sidebar'">
+  <img class="logoAndina" src="assets/media/cocacola-andina.png" alt="" />
+  <ul class="options">
+    <li
+      *ngFor="let option of sidebarOptions"
+      class="li-sidebar"
+      [ngClass]="{ active: option.active, disabled: option.disabled }"
+      (click)="optionSelected(option)"
+    >
+      <svg class="img-fluid mr-2 icon-ka-sidebar" stroke-width="3.25">
+        <use [attr.xlink:href]="'./assets/icons/tabler-sprite.svg#tabler-' + option.icon" />
+      </svg>
+      <span>{{ 'HOME.' + option.langKey | translate }}</span>
+    </li>
+  </ul>
+  <div *ngIf="!isMobile" class="w-100 pl-4">
+    <button (click)="signOut()" class="call-to-action" >
+      <svg>
+        <use xlink:href="./assets/icons/tabler-sprite.svg#tabler-logout" />
+      </svg>
+      {{ 'HOME.SIGN_OUT' | translate }}
+    </button>
+  </div>
+</div>

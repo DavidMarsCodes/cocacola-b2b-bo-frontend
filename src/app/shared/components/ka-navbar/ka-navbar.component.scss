@@ -1,0 +1,103 @@
+@import 'variables';
+
+.navbar {
+  padding: 0;
+  background-color: $light-grey;
+  @media (max-width: $lg) {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+  }
+
+  .logoAndina {
+    width: 180px;
+    max-width: 50%;
+  }
+  .desktop-nav {
+    @media (max-width: $lg) {
+      display: none;
+    }
+  }
+  .nav-link {
+    font-size: 14px;
+  }
+  .navbar-toggler {
+    border: none;
+    color: $dark;
+    font-size: 18px;
+    width: auto;
+  }
+  .navbar-toggler-icon {
+    background-image: none;
+  }
+  .navbar-nav,
+  .mobile {
+    svg {
+      color: $dark;
+      width: 30px;
+    }
+  }
+}
+
+form {
+  svg {
+    max-width: none;
+    position: relative;
+    bottom: 6px;
+    &.search {
+      width: 20px;
+    }
+    &.trash {
+      width: 17px;
+      color: $dark-grey;
+    }
+  }
+  input {
+    padding-top: 0.2rem !important;
+  }
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-wrapper {
+  @media (max-width: $lg) {
+    display: none;
+  }
+  margin: 0 !important;
+  height: 30px;
+  .mat-form-field-flex {
+    padding: 0 !important;
+  }
+  .mat-form-field-infix {
+    border-radius: 5px;
+    width: 100%;
+    max-width: 500px !important;
+    padding: 0 !important;
+  }
+  .mat-form-field-outline {
+    background: $white !important;
+    box-shadow: $shadow;
+    color: #f8f9fa !important;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 550px;
+    height: 30px;
+  }
+  .mat-form-field-label {
+    margin-top: -1.25em;
+    font-size: 16px;
+    line-height: 19px;
+    color: rgba(73, 73, 73, 0.78);
+  }
+
+  .buscar-input {
+    font-size: 20px;
+  }
+
+  ::placeholder {
+    font-size: 14px;
+    border-width: 0px;
+  }
+}
+
+::ng-deep .navbar-expand-lg .navbar-nav .dropdown-menu {
+  width: 150px !important;
+}

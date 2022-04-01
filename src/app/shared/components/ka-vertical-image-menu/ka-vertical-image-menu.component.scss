@@ -1,0 +1,42 @@
+@import 'variables';
+
+.card {
+  background: $white;
+  border-radius: 1rem;
+  border: 1px solid $grey;
+  padding: 3rem;
+  min-height: 255px;
+  @media screen and (max-width: $lg) {
+    min-height: 100px;
+  }
+  cursor: pointer;
+  fa-icon {
+    font-size: 30px;
+  }
+  svg {
+    width: 50%;
+    height: 50%;
+    max-width: 50px;
+    max-height: 50px;
+    color: $red;
+  }
+  .title {
+    font-family: $font-bold;
+    font-size: 1.9rem;
+    line-height: 2rem;
+    text-align: center;
+    color: $dark;
+    @media screen and (max-width: $lg) {
+      font-size: 18px;
+      line-height: 22px;
+      font-weight: bold;
+      text-align: left;
+    }
+  }
+  .subtitle {
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    text-align: left;
+    color: $dark;
+  }
+}

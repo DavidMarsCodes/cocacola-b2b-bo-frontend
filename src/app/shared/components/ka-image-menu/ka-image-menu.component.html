@@ -1,0 +1,7 @@
+<div class="card disabled d-flex align-items-center justify-content-center h-100 {{ responsive ? 'flex-column flex-xl-row' : 'flex-row' }}">
+  <svg class="my-2"><use [attr.xlink:href]="'./assets/icons/tabler-sprite.svg#tabler-' + icon" /></svg>
+  <div class="my-2">
+    <p class="pl-3 mb-0">{{ title }}</p>
+    <p class="text pl-3 mb-0">{{ text }}</p>
+  </div>
+</div>

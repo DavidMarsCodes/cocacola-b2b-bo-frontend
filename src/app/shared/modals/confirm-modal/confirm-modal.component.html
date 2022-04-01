@@ -1,0 +1,19 @@
+<div>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{ data.title }}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <img *ngIf="data.image" src="/assets/media/emojis/{{ data.image }}" alt="" class="py-4" />
+    <h3 *ngIf="data.text" class="title my-2">{{ data.text }}</h3>
+    <p *ngIf="data.description" class="description">{{ data.description }}</p>
+  </div>
+  <div *ngIf="showFooterButtons" class="modal-footer d-flex justify-content-center">
+    <button *ngIf="data.rejectBtnLabel" [id]="data.id + '-cancel-modal'" type="button" class="btn-square border-0" (click)="reject()">
+      {{ data.rejectBtnLabel }}
+    </button>
+    <button *ngIf="data.confirmBtnLabel" [id]="data.id + '-confirm-modal'" class="btn-square-black" (click)="confirm()">{{ data.confirmBtnLabel }}</button>
+  </div>
+</div>

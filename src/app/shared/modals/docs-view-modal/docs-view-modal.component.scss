@@ -1,0 +1,21 @@
+@import 'variables';
+
+.mat-dialog-container {
+  max-width: 100%;
+  padding: 0;
+  border-radius: 0;
+  overflow: visible;
+  background: transparent;
+  box-shadow: none;
+}
+
+.modal-title {
+  font-family: $font-bold;
+}
+.modal-body {
+  height: 60vh;
+}
+
+button {
+  max-width: none;
+}

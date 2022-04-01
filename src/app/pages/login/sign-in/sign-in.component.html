@@ -1,0 +1,24 @@
+<app-ka-login-navbar [hasSelectCountry]="true" [hasBackButton]="false"></app-ka-login-navbar>
+<div class="container-fluid home">
+  <div class="row justify-content-center">
+      <section class="d-flex flex-column justify-content-center align-items-center">
+        <div class="login-options-container">
+          <div class="row col-12 login-option">
+            <div class="col-12">
+              <h1 class="subtitle-black">¡Te damos la bienvenida!</h1>
+              <br>
+              <p class="description">Estamos validando tu sesión, por favor espera un momento</p>
+            </div>
+            <br>
+            <div class="col-12 enthusiast-image img-fluid">
+              <img src="/assets/media/emojis/enthusiast.png" alt="" class="py-4" />
+            </div>
+            <br>
+            <div class="col-12 enthusiast-image">
+              <button *ngIf="serviceError" class="btn-square-shadow" (click)="redirectToInit()">{{ ROOT_LANG + 'VOLVER' | translate }}</button>
+            </div>
+          </div>
+        </div>
+      </section>
+  </div>
+</div>

@@ -1,0 +1,158 @@
+<div class="row m-0">
+  <div class="home col-12 scroll-grey">
+    <div class="col-12 nav">
+      <app-ka-navbar class="w-100"></app-ka-navbar>
+    </div>
+    <div class="col-12 scroll-grey">
+      <div class="row mb-4">
+        <div class="col-12">
+          <p class="title mb-2">
+            <strong> {{ ROOT_LANG + 'TITLE' | translate }} {{ codeSku }} </strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="card bg-white d-flex justify-content-between p-5 mb-5 example-container">
+        <p class="subtitle">
+          <strong> {{ ROOT_LANG + 'SUBTITLE' | translate }} </strong>
+        </p>
+
+        <div class="body w-100">
+          <form [formGroup]="productForm" [ngClass]="{ 'service-error': serviceError }">
+            <div class="form-group">
+              <p class="label">{{ ROOT_LANG + 'FIELD_NAME' | translate }}</p>
+              <input
+                formControlName="name"
+                name="name"
+                class="form-control"
+                maxlength="100"
+                placeholder="{{ ROOT_LANG + 'FIELD_NAME_PLACEHOLDER' | translate }}"
+              />
+              <mat-error *ngIf="productForm.controls.name.touched && !productForm.controls.name.valid" class="invalid-feedback d-block">
+                <span *ngIf="productForm.controls.name.errors.required">{{ ROOT_LANG + 'FIELD_NAME_ERROR' | translate }}</span>
+              </mat-error>
+            </div>
+
+            <div class="form-group">
+              <div class="brand-container">
+                <p class="label">{{ ROOT_LANG + 'FIELD_BRAND' | translate }}</p>
+                <input
+                  formControlName="brand"
+                  name="brand"
+                  class="form-control"
+                  maxlength="120"
+                  placeholder=" {{ ROOT_LANG + 'FIELD_BRAND_PLACEHOLDER' | translate }}"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="category-container">
+                <p class="label">{{ ROOT_LANG + 'CATEGORY' | translate }}</p>
+                <mat-select formControlName="category" class="form-control mat-select" name="category" required>
+                  <mat-option>Seleccione una</mat-option>
+                  <mat-option *ngFor="let c of categories" [value]="c.productGroupId">
+                    {{ c.name }}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="productForm.controls.category.touched && !productForm.controls.category.valid">
+                  <span *ngIf="productForm.controls.category.errors.required">
+                    {{ ROOT_LANG + 'FIELD_CATEGORY_ERROR' | translate }}
+                  </span>
+                </mat-error>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="macro-category-container">
+                <p class="label">{{ ROOT_LANG + 'MACRO_CATEGORY' | translate }}</p>
+
+                <mat-select formControlName="macrocategory" class="form-control mat-select" name="category" required>
+                  <mat-option>Seleccione una</mat-option>
+                  <mat-option *ngFor="let c of macrocategories" [value]="c.productGroupId">
+                    {{ c.name }}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="productForm.controls.macrocategory.touched && !productForm.controls.macrocategory.valid">
+                  <span *ngIf="productForm.controls.macrocategory.errors.required">
+                    {{ ROOT_LANG + 'FIELD_MACRO_CATEGORY_ERROR' | translate }}
+                  </span>
+                </mat-error>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="size-container">
+                <p class="label">{{ ROOT_LANG + 'SIZE' | translate }}</p>
+                <input formControlName="size" name="size" class="form-control" maxlength="40" placeholder=" {{ ROOT_LANG + 'SIZE_PLACEHOLDER' | translate }}" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="validity-container">
+                <p class="label">{{ ROOT_LANG + 'PACKAGE' | translate }}</p>
+                <input
+                  formControlName="package"
+                  name="package"
+                  class="form-control"
+                  maxlength="120"
+                  placeholder="{{ ROOT_LANG + 'PACKAGE_PLACEHOLDER' | translate }}"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="macro-category-container">
+                <p class="label">{{ ROOT_LANG + 'LOCKED_LABEL' | translate }}</p>
+
+                <mat-slide-toggle formControlName="locked" color="black">
+                  <span class="slide-label">
+                    {{ ROOT_LANG + 'LOCKED_SLIDE' | translate }}
+                  </span>
+                </mat-slide-toggle>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <div class="file-container">
+                <p class="label mb-4">{{ ROOT_LANG + 'IMAGE_LABEL' | translate }}</p>
+                  <button mat-button color="basic" >  
+                    <input type="file" name="file" id="file" accept="image/*" class="fileControlInput" (change)="onFileChange($event.target.files)" />
+                    <mat-icon>file_upload</mat-icon>  
+                    {{ ROOT_LANG + 'UPLOAD_IMAGE' | translate }}  
+                  </button> 
+                  <img *ngIf="image" [src]="image" alt="" class="product-image" />
+                </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="btn-new-order row d-none d-md-flex pb-4 px-5">
+        <div class="col-2">
+          <button id="place_new_order" class="btn-transparent border-0 w-100" (click)="cancelChanges()">
+            {{ ROOT_LANG + 'CANCEL_CHANGES' | translate }}
+          </button>
+        </div>
+        <div class="col-4">
+          <button id="place_new_order" class="btn-square-black w-100" (click)="saveChanges()">
+            {{ ROOT_LANG + 'SAVE_CHANGES' | translate }}
+          </button>
+        </div>
+      </div>
+      <div class="modal-footer row d-md-none pb-4 px-5">
+        <div class="col-12 mb-3">
+          <button id="place_new_order" class="btn-transparent border-0 w-100" (click)="cancelChanges()">
+            {{ ROOT_LANG + 'CANCEL_CHANGES' | translate }}
+          </button>
+        </div>
+
+        <div class="col-12 mb-3">
+          <button id="place_new_order" class="btn-square-black w-100" (click)="saveChanges()">
+            {{ ROOT_LANG + 'SAVE_CHANGES' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

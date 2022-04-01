@@ -1,0 +1,123 @@
+<div class="row m-0">
+  <div class="home col-12 scroll-grey">
+    <div class="col-12 nav">
+      <app-ka-navbar class="w-100"></app-ka-navbar>
+    </div>
+    <div class="col-12 scroll-grey">
+      <div class="row mb-4">
+        <div class="col-12">
+          <p class="title mb-2">
+            <strong> {{ ROOT_LANG + 'TITLE' | translate }} {{ codeSku }} </strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="card bg-white d-flex justify-content-between p-5 mb-5 example-container">
+        <p class="subtitle">
+          <strong> {{ ROOT_LANG + 'SUBTITLE' | translate }} </strong>
+        </p>
+
+
+
+        <div class="body w-100">
+          <form [formGroup]="bannerForm" [ngClass]="{ 'service-error': serviceError }">
+
+            <div class="form-group">
+              <div class="date-container">
+                <p class="label">{{ ROOT_LANG + 'FIELD_DATE' | translate }}</p>
+                <input formControlName="date" name="date" class="form-control" maxlength="120"
+                  placeholder=" {{ ROOT_LANG + 'FIELD_DATE_PLACEHOLDER' | translate }}" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <p class="label">{{ ROOT_LANG + 'FIELD_NAME' | translate }}</p>
+              <input formControlName="title" name="title" class="form-control" maxlength="40"
+                placeholder="{{ ROOT_LANG + 'FIELD_NAME_PLACEHOLDER' | translate }}" />
+              <mat-error *ngIf="bannerForm.controls.title.touched && !bannerForm.controls.title.valid"
+                class="invalid-feedback d-block">
+                <span *ngIf="bannerForm.controls.title.errors.required">{{ ROOT_LANG + 'FIELD_NAME_ERROR' | translate
+                  }}</span>
+              </mat-error>
+            </div>
+
+
+            <div class="form-group">
+              <div class="size-container">
+                <p class="label">{{ ROOT_LANG + 'DEVICE' | translate }}</p>
+                <input formControlName="device" name="device" class="form-control" maxlength="40"
+                  placeholder=" {{ ROOT_LANG + 'DEVICE_PLACEHOLDER' | translate }}" />
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <div class="size-container">
+                <p class="label">{{ ROOT_LANG + 'CLIENT_PATH' | translate }}</p>
+                <input type="file" name="file" id="file" accept="text/csv,application/vnd.ms-excel"
+                  style="display: none" (change)="onFileChange($event.target.files)" />
+                <label *ngIf="!clientFile" for="file" class="btn-square clickeable">{{ ROOT_LANG + 'ADJUNTAR' | translate
+                  }}</label>
+                <label *ngIf="clientFile" for="file" class="btn-square clickeable">{{ clientFile.name }}</label>
+              </div>
+            </div>
+
+
+
+            <div class="form-group">
+              <div class="file-container">
+                <p class="label mb-4">{{ ROOT_LANG + 'IMAGE_LABEL' | translate }}</p>
+                <button mat-button color="basic">
+                  <input type="file" name="file" id="file" accept="image/*" class="fileControlInput"
+                    (change)="onImageChange($event.target.files)" />
+                  <mat-icon>file_upload</mat-icon>
+                  {{ ROOT_LANG + 'UPLOAD_IMAGE' | translate }}
+                </button>
+                <img *ngIf="image" [src]="image" alt="" class="product-image" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="macro-category-container">
+                <p class="label">{{ ROOT_LANG + 'ACTIVE_LABEL' | translate }}</p>
+
+                <mat-slide-toggle formControlName="active" color="black">
+                  <span class="slide-label">
+                    {{ ROOT_LANG + 'ACTIVE_SLIDE' | translate }}
+                  </span>
+                </mat-slide-toggle>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+      <div class="btn-new-order row d-none d-md-flex pb-4 px-5">
+        <div class="col-2">
+          <button id="place_new_order" class="btn-transparent border-0 w-100" (click)="cancelChanges()">
+            {{ ROOT_LANG + 'CANCEL_CHANGES' | translate }}
+          </button>
+        </div>
+        <div class="col-4">
+          <button id="place_new_order" class="btn-square-black w-100" (click)="saveChanges()">
+            {{ ROOT_LANG + 'SAVE_CHANGES' | translate }}
+          </button>
+        </div>
+      </div>
+      <div class="modal-footer row d-md-none pb-4 px-5">
+        <div class="col-12 mb-3">
+          <button id="place_new_order" class="btn-transparent border-0 w-100" (click)="cancelChanges()">
+            {{ ROOT_LANG + 'CANCEL_CHANGES' | translate }}
+          </button>
+        </div>
+
+        <div class="col-12 mb-3">
+          <button id="place_new_order" class="btn-square-black w-100" (click)="saveChanges()">
+            {{ ROOT_LANG + 'SAVE_CHANGES' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

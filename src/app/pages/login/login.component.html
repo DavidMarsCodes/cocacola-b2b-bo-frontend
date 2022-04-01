@@ -1,0 +1,24 @@
+<app-ka-login-navbar [hasSelectCountry]="true" [hasBackButton]="false"></app-ka-login-navbar>
+<div class="container-fluid section">
+  <div class="row justify-content-center">
+      <section class="d-flex flex-column justify-content-center align-items-center">
+        <div class="login-options-container">
+          <div class="row col-12 login-option">
+            <div class="col-12">
+              <h1 class="subtitle-black">{{ ROOT_LANG + 'BIENVENIDA' | translate }}</h1>
+              <br>
+              <p class="p-ingreso">{{ ROOT_LANG + 'MENSAJE_BIENVENIDA' | translate }}</p>
+            </div>
+            <br>
+            <div class="col-12 enthusiast-image img-fluid">
+              <img src="/assets/media/emojis/enthusiast.png" alt="" class="py-4" />
+            </div>
+            <br>
+            <div class="col-12 enthusiast-image">
+              <button class="btn-square-shadow" (click)="signIn()">{{ ROOT_LANG + 'INICIO' | translate }}</button>
+            </div>
+          </div>
+        </div>
+      </section>
+  </div>
+</div>

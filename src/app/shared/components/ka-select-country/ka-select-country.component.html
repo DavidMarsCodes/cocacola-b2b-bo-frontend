@@ -1,0 +1,15 @@
+<div *ngIf="!readonly" class="dropdown">
+  <div class="nav-link dropdown-toggle" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <img class="img-fluid flags rounded-circle" src="assets/media/countriesFlags/{{ selectedLang.key }}.png" />
+  </div>
+  <div class="dropdown-menu {{ hasLabel ? 'dropdown-menu-left' : 'dropdown-menu-right' }}" aria-labelledby="dropdown05">
+    <a *ngFor="let flag of countryFlags" class="dropdown-item" (click)="selectLanguage(flag)">
+      <img class="img-fluid flags rounded-circle mr-2" src="assets/media/countriesFlags/{{ flag.key }}.png" />
+      {{ flag.label }}
+    </a>
+  </div>
+</div>
+<div *ngIf="readonly">
+  <img class="img-fluid flags rounded-circle" src="assets/media/countriesFlags/{{ selectedLang.key }}.png" />
+  <span *ngIf="hasLabel" class="ml-3">{{ selectedLang.label }}</span>
+</div>

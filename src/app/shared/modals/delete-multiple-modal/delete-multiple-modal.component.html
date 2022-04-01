@@ -1,0 +1,42 @@
+<div>
+  <div class="modal-header">
+
+    <h4 class="modal-title" id="modal-basic-title">{{ data.title }}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <div class="modal-body">
+      <div>
+        <img class="my-4" src="/assets/media/emojis/not-found.png" alt="" />
+      </div>
+
+      <div class="row mb-6">
+
+        <div class="d-flex align-items-start justify-content-start">
+          <div>
+            <p class="description">{{ ROOT_LANG + 'DESCRIPTION_DELETE_SELECTION' | translate }}</p>
+          </div>
+
+        </div>
+      </div>
+
+
+
+      <div class="form-group  mb-4">
+        <div>
+          <div class="primary-filters d-flex align-items-stretch justify-content-between mb-4">
+            <button class="btn-square-white" (click)="reject()">
+              {{ ROOT_LANG + 'TEXT_NO_DELETE_BUTTON' | translate }}
+            </button>
+            <button class="btn-square-black" (click)="reload('/main/banners')">{{ ROOT_LANG + 'TEXT_YES_DELETE_BUTTON'
+              | translate }}</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

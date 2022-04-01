@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Nicolas",
+      "email": "nicolas.beltran@incluit.com"
+    },
+    {
+      "id": 2,
+      "name": "Priscila",
+      "email": "priscila.moneo@incluit.com"
+    },
+    {
+      "id": 3,
+      "name": "Andrés",
+      "email": "andres.reynoso@incluit.com"
+    },
+    {
+      "id": 4,
+      "name": "a",
+      "email": "a@a"
+    }
+  ]
+}

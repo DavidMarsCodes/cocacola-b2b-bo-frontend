@@ -1,0 +1,21 @@
+<div class="d-none d-lg-block h-100">
+  <div class="card d-flex flex-row justify-content-between align-items-center h-100">
+    <div class="d-flex flex-column align-items-center">
+      <svg><use [attr.xlink:href]="'./assets/icons/tabler-sprite.svg#tabler-' + image" /></svg>
+      <p class="title my-3">{{ title }}</p>
+      <p class="subtitle my-3">{{ subtitle }}</p>
+      <button *ngIf="button" [disabled]="disabled" [routerLink]="routerLink" class="btn-black">{{ buttonText }}</button>
+    </div>
+  </div>
+</div>
+
+<div class="d-block d-lg-none">
+  <div class="card d-flex flex-row justify-content-center align-items-center p-2">
+    <div class="col-5 d-flex justify-content-center align-items-center">
+      <svg><use [attr.xlink:href]="'./assets/icons/tabler-sprite.svg#tabler-' + image" /></svg>
+    </div>
+    <div class="col-7">
+      <p class="title">{{ title }}</p>
+    </div>
+  </div>
+</div>

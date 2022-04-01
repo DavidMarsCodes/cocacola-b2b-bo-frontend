@@ -1,0 +1,39 @@
+<div class="vh-100 w-100 d-flex justify-content-center align-items-center">
+  <div class="container" [ngClass]="{ 'logged-in': isLoggedIn }">
+    <div *ngIf="!isLoggedIn" class="text-center">
+      <img class="not-found-img mb-5" src="/assets/media/emojis/not-found.png" alt="" />
+      <h1 class="title">{{ LANG_ROOT + 'TITLE' | translate }}</h1>
+      <h3 class="sub-title">{{ LANG_ROOT + 'SUBTITLE' | translate }}</h3>
+      <p>{{ LANG_ROOT + 'USER_NOT_REGISTER_TEXT_1' | translate }}</p>
+      <p>
+        {{ LANG_ROOT + 'USER_NOT_REGISTER_TEXT_2' | translate }}
+        <a routerLink="/sign-up" id="404-sign-up">{{ LANG_ROOT + 'USER_NOT_REGISTER_LINK' | translate }}</a>
+      </p>
+      <button routerLink="/sign-in" class="btn-square-black" id="404-sign-in">{{ LANG_ROOT + 'USER_NOT_REGISTER_TEXT_3' | translate }}</button>
+    </div>
+
+    <div *ngIf="isLoggedIn" class="d-flex justify-content-center">
+      <div class="mx-4">
+        <img class="not-found-img" src="/assets/media/emojis/not-found.png" alt="" />
+      </div>
+      <div class="mx-4 texts d-flex align-items-center">
+        <div>
+          <h1 class="title">{{ LANG_ROOT + 'TITLE' | translate }}</h1>
+          <h3 class="sub-title">{{ LANG_ROOT + 'SUBTITLE' | translate }}</h3>
+          <p>
+            {{ LANG_ROOT + 'USER_NOT_REGISTER_TEXT_1' | translate }}
+            <a routerLink="/main/nuevo-pedido/1" id="404-new-order">{{ LANG_ROOT + 'USER_REGISTER_LINK' | translate }}</a>
+          </p>
+          <p>
+            {{ LANG_ROOT + 'USER_REGISTER_TEXT_2' | translate }}
+            <a routerLink="/main/mis-pedidos" id="404-my-orders">{{ LANG_ROOT + 'USER_REGISTER_LINK_2' | translate }}</a>
+          </p>
+          <p>
+            {{ LANG_ROOT + 'USER_REGISTER_TEXT_3' | translate }}
+            <a routerLink="/main/home" id="404-home">{{ LANG_ROOT + 'USER_REGISTER_LINK_3' | translate }}</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

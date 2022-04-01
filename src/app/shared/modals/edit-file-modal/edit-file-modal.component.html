@@ -1,0 +1,75 @@
+<div>
+    <div class="modal-header">
+      
+      <h4 class="modal-title" id="modal-basic-title">{{ data.title }}</h4>
+      <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="row mb-6">
+        <div class="d-flex align-items-start justify-content-start">
+          <div *ngIf="data.action !=='deleteMasive'">
+          <p class="title">{{ ROOT_LANG + 'TITLE_EDIT_SELECTION' | translate }}</p>
+         </div>
+         <div *ngIf="data.action ==='deleteMasive'">
+          <p class="title">{{ ROOT_LANG + 'TITLE_DELETE_SELECTION' | translate }}</p>
+         </div>
+        </div>
+        <div class="d-flex align-items-start justify-content-start">
+          <div *ngIf="data.action !=='deleteMasive'">
+          <p class="description">{{ ROOT_LANG + 'DESCRIPTION_EDIT_SELECTION' | translate }}</p>
+          </div>
+          <div *ngIf="data.action ==='deleteMasive'">
+            <p class="description">{{ ROOT_LANG + 'DESCRIPTION_DELETE_SELECTION' | translate }}</p>
+            </div>
+        </div>  
+
+        <div class="d-flex align-items-start justify-content-start">
+          <div *ngIf="data.action =='deleteBannerSelection'">
+          <p class="description">{{ ROOT_LANG + 'DESCRIPTION_DELETE_SELECTION' | translate }}</p>
+          </div>
+
+        </div> 
+      </div>      
+      <div class="modal-body">
+        <div *ngIf="data.action !=='deleteMasive'">
+          <img class="my-4" src="/assets/media/emojis/confirm-order.png" alt="" />
+        </div>
+        <div *ngIf="data.action ==='deleteMasive'">
+          <img class="my-4" src="/assets/media/emojis/not-found.png" alt="" />
+        </div>
+          <div class="form-group mb-4">
+            <p class="description my-2 d-flex align-items-start justify-content-start">{{ ROOT_LANG + 'TITLE_CONCEPT' | translate }}</p>
+            <input name="valueTitle" disabled="{{inputEdit}}"class="form-control mt-auto h-100 pr-4 d-block w-100" maxlength="120" placeholder=""
+            [(ngModel)]="valueConcept" value="{{data.element.title}}" />            
+          </div>
+          <div class="form-group  mb-4">
+            <div *ngIf="data.action !=='deleteMasive'">
+              <p class="description my-2 d-flex align-items-start justify-content-start">{{ ROOT_LANG + 'TITLE_KEYWORD' | translate }}</p>
+              <input name="valuesKey" (keypress)="omit_special_char($event)" class="form-control" maxlength="120" placeholder="" [(ngModel)]="valueKeys"
+                value="{{data.element.keywords}}" onCopy="return false" onDrag="return false" onDrop="return false" onPaste="return false" autocomplete=off />
+            </div>
+          </div>
+          <div class="form-group  mb-4">
+            <div *ngIf="data.action ==='deleteMasive'">
+              <div class="primary-filters d-flex align-items-stretch justify-content-between mb-4">
+                <button class="btn-square-white" (click)="reject()">
+                  {{ ROOT_LANG + 'TEXT_NO_DELETE_BUTTON' | translate }}
+                </button>
+                <button class="btn-square-black" (click)="reload('/main/keywords')">{{ ROOT_LANG + 'TEXT_YES_DELETE_BUTTON' | translate }}</button>
+              </div>
+            </div>
+            <div *ngIf="data.action !=='deleteMasive'">
+              <div class="primary-filters d-flex align-items-stretch justify-content-between mb-4">
+                <button class="btn-square-white" (click)="reject()">
+                  {{ ROOT_LANG + 'TEXT_YES_EDIT_BUTTON' | translate }}
+                </button>
+                <button class="btn-square-black" (click)="reload('/main/keywords')">{{ ROOT_LANG + 'TEXT_NO_EDIT_BUTTON' | translate }}</button>
+              </div>
+            </div>      
+          </div>       
+      </div>    
+    </div>    
+  </div>
+  

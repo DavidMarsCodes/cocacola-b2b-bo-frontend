@@ -1,0 +1,60 @@
+@import 'variables';
+
+.card {
+  background: $white;
+  border-radius: 1rem;
+  padding: 2rem 3rem;
+  border: 1px solid $grey;
+  border-radius: 9.46524px;
+  height: calc(100% - 15px);
+  padding-top: 8rem; //Remover cuando haya que poner Repetir un pedido
+  padding-bottom: 2.5rem;
+  cursor: pointer;
+  &.disabled {
+    cursor: default;
+  }
+  &.red {
+    background: $red;
+    color: $white;
+  }
+  @media (max-width: $lg) {
+    padding: 20px;
+  }
+
+  svg {
+    color: $red;
+    width: 5rem;
+    height: 5rem;
+    &.white {
+      color: $white;
+    }
+  }
+  .title {
+    font-weight: bold;
+    font-size: 2.5rem;
+    line-height: 4rem;
+    @media (max-width: $lg) {
+      font-size: 20px;
+      line-height: 24px;
+      margin-bottom: 15px;
+    }
+  }
+
+  .subtitle {
+    font-size: 1.8rem;
+    line-height: 2rem;
+  }
+
+  .message {
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+    color: $white;
+    font-family: $font-bold;
+  }
+  button {
+    background-color: $dark-grey-bold;
+    border: none;
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+  }
+}

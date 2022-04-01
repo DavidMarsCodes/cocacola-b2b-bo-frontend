@@ -1,0 +1,15 @@
+<div *ngIf="translateReady && sessionReady" class="container-fluid main">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2 p-0">
+      <app-ka-sidebar [isMobile]="false"></app-ka-sidebar>
+    </div>
+    <div class="col-12 col-md-12 col-lg-10">
+      <div class="row">
+        <router-outlet></router-outlet>
+      </div>
+      <div id="side-bar-mobile" class="row d-block d-lg-none footer">
+        <app-ka-sidebar [isMobile]="true"></app-ka-sidebar>
+      </div>
+    </div>
+  </div>
+</div>

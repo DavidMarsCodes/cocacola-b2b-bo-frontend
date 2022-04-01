@@ -1,0 +1,9 @@
+<ul class="">
+  <li>
+    <app-ka-select-country [hasLabel]="true" [readonly]="true"></app-ka-select-country>
+  </li>
+  <li (click)="signOut()" id="sign-out-mobile">
+    <svg><use xlink:href="./assets/icons/tabler-sprite.svg#tabler-logout" /></svg>
+    {{ 'HOME.SIGN_OUT' | translate }}
+  </li>
+</ul>

@@ -1,0 +1,39 @@
+@import 'variables';
+
+.card {
+  background: $white;
+  border-radius: 1rem;
+  padding: 2rem 3rem;
+  border: 0.946524px solid $grey;
+  border-radius: 9.46524px;
+  cursor: pointer;
+  @media (max-width: $lg) {
+    padding: 20px;
+  }
+
+  p {
+    font-size: 1.6rem;
+    line-height: 1.7rem;
+    color: $dark;
+  }
+  .text {
+    font-size: 1.5rem;
+    line-height: 1.4rem;
+  }
+
+  svg {
+    color: $red;
+    min-width: 35px;
+    min-height: 35px;
+  }
+
+  &.disabled {
+    background-color: #eee;
+    p {
+      color: $dark-grey;
+    }
+    svg {
+      color: $dark-grey;
+    }
+  }
+}

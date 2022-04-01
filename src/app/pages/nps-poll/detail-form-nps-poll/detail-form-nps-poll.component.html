@@ -1,0 +1,152 @@
+<div class="row m-0">
+  <div class="home col-12 scroll-grey">
+    <div class="col-12 nav">
+      <app-ka-navbar class="w-100"></app-ka-navbar>
+    </div>
+    <div class="col-12 scroll-grey">
+      <div class="row mb-4">
+        <div class="col-12">
+          <p class="title mb-2">
+            <strong> {{ ROOT_LANG + 'TITLE' | translate }} {{ codeSku }} </strong>
+          </p>
+        </div>
+      </div>
+
+      <div class="card bg-white d-flex justify-content-between p-5 mb-5 example-container">
+        <p class="subtitle">
+          <strong> {{ ROOT_LANG + 'SUBTITLE' | translate }} </strong>
+        </p>
+
+        <div class="body w-100">
+          <form [formGroup]="pollForm" [ngClass]="{ 'service-error': serviceError }">
+
+            <div class="form-group">
+              <p class="label">{{ ROOT_LANG + 'FIELD_NAME' | translate }}</p>
+              <input formControlName="mainQuestion" name="mainQuestion" class="form-control" maxlength="40"
+                placeholder="{{ ROOT_LANG + 'FIELD_NAME_PLACEHOLDER' | translate }}" />
+              <mat-error *ngIf="pollForm.controls.mainQuestion.touched && !pollForm.controls.mainQuestion.valid"
+                class="invalid-feedback d-block">
+                <span *ngIf="pollForm.controls.mainQuestion.errors.required">{{ ROOT_LANG + 'FIELD_NAME_ERROR' |
+                  translate
+                  }}</span>
+              </mat-error>
+            </div>
+
+
+            <div class="form-group">
+              <div class="size-container">
+                <p class="label">{{ ROOT_LANG + 'DESCRIPTION' | translate }}</p>
+                <input formControlName="description" name="description" class="form-control" maxlength="40"
+                  placeholder=" {{ ROOT_LANG + 'DESCRIPTION_PLACEHOLDER' | translate }}" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="size-container">
+                <p class="label">{{ ROOT_LANG + 'SECONDARY_QUESTION' | translate }}</p>
+                <input formControlName="secondaryQuestion" name="secondaryQuestion" class="form-control" maxlength="40"
+                  placeholder=" {{ ROOT_LANG + 'SECONDARY_QUESTION_PLACEHOLDER' | translate }}" />
+              </div>
+
+              <div class="active-question2-container">
+
+
+                <mat-slide-toggle formControlName="secondaryActive" color="black" (change)="toggle($event)">
+                  <span class="slide-label">
+                    {{ ROOT_LANG + 'ACTIVE_SECONDARY' | translate }}
+                  </span>
+                </mat-slide-toggle>
+              </div>
+            </div>
+
+            <div class="form-group-scale">
+              <div class="size-container-scale">
+                <p class="label">{{ ROOT_LANG + 'SCALE_TITLE' | translate }}</p>
+                <input formControlName="scaleFrom" type="number" name="min_scale_rate"
+                  class="form-control-horizontal small-input left-space" maxlength="40"
+                  placeholder=" {{ ROOT_LANG + 'MIN_SCALE_RATE_PLACEHOLDER' | translate }}" />
+
+                <input formControlName="scaleFromName" class="form-control-horizontal large-input" maxlength="40"
+                  placeholder=" {{ ROOT_LANG + 'MIN_SCALE_LABEL_PLACEHOLDER' | translate }}" />
+              </div>
+
+
+              <div class="size-container-scale">
+
+
+                <input formControlName="scaleTo" type="number" class="form-control-horizontal small-input left-space"
+                  maxlength="40" placeholder=" {{ ROOT_LANG + 'MAX_SCALE_RATE_PLACEHOLDER' | translate }}" />
+
+                <input formControlName="scaleToName" class="form-control-horizontal large-input" maxlength="40"
+                  placeholder=" {{ ROOT_LANG + 'MAX_SCALE_LABEL_PLACEHOLDER' | translate }}" />
+              </div>
+
+            </div>
+
+
+            <div class="form-group">
+              <div class="macro-category-container">
+
+                <mat-slide-toggle formControlName="applyToAll" color="black" (change)="toggleApplyToAll($event)">
+                  <span class="slide-label">
+                    {{ ROOT_LANG + 'APPLY_TO_ALL' | translate }}
+                  </span>
+                </mat-slide-toggle>
+              </div>
+
+
+              <div class="size-container" *ngIf="!applyToAll">
+                <p class="label">{{ ROOT_LANG + 'CLIENT_PATH' | translate }}</p>
+                <input type="file" name="file" id="file" accept="text/csv,application/vnd.ms-excel"
+                  style="display: none" (change)="onFileChange($event.target.files)" />
+                <label *ngIf="!clientFile" for="file" class="btn-square clickeable">{{ ROOT_LANG + 'ADJUNTAR' |
+                  translate
+                  }}</label>
+                <label *ngIf="clientFile" for="file" class="btn-square clickeable">{{ clientFile.name }}</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="macro-category-container">
+                <p class="label">{{ ROOT_LANG + 'ACTIVE_LABEL' | translate }}</p>
+
+                <mat-slide-toggle formControlName="active" color="black">
+                  <span class="slide-label">
+                    {{ ROOT_LANG + 'ACTIVE_SLIDE' | translate }}
+                  </span>
+                </mat-slide-toggle>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+      <div class="btn-new-order row d-none d-md-flex pb-4 px-5">
+        <div class="col-2">
+          <button id="place_new_order" class="btn-transparent border-0 w-100" (click)="cancelChanges()">
+            {{ ROOT_LANG + 'CANCEL_CHANGES' | translate }}
+          </button>
+        </div>
+        <div class="col-4">
+          <button id="place_new_order" class="btn-square-black w-100" (click)="saveChanges()">
+            {{ ROOT_LANG + 'SAVE_CHANGES' | translate }}
+          </button>
+        </div>
+      </div>
+      <div class="modal-footer row d-md-none pb-4 px-5">
+        <div class="col-12 mb-3">
+          <button id="place_new_order" class="btn-transparent border-0 w-100" (click)="cancelChanges()">
+            {{ ROOT_LANG + 'CANCEL_CHANGES' | translate }}
+          </button>
+        </div>
+
+        <div class="col-12 mb-3">
+          <button id="place_new_order" class="btn-square-black w-100" (click)="saveChanges()">
+            {{ ROOT_LANG + 'SAVE_CHANGES' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

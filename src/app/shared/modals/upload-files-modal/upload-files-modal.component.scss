@@ -1,0 +1,123 @@
+@import 'variables';
+
+.mat-dialog-container {
+  max-width: 100%;
+  padding: 0;
+  border-radius: 0;
+  overflow: visible;
+  background: transparent;
+  box-shadow: none;
+}
+
+.modal-title {
+  font-family: $font-bold;
+}
+
+button {
+  max-width: none;
+}
+
+.text-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.centered {
+  font-size: 1.3em;
+  text-align: center;
+  display: inline-grid;
+}
+
+.dragarea {
+  height: 70%;
+  display: table;
+  width: 80%;
+  background-color: $white;
+  border: dotted 2px $grey;
+  margin-inline: auto;
+}
+
+.droparea {
+  height: 70%;
+  display: table;
+  width: 80%;
+  border: dotted 2px $grey;
+  background-color: $light-blue;
+  color: #aaa;
+  margin-inline: auto;
+}
+
+input[type='file'] {
+  display: none;
+}
+
+.textLink {
+  color: $black;
+  font-family: 'Gotham Book';
+  border-radius: 5px;
+}
+
+.file-modal-footer {
+  font-size: 1.3em;
+  text-align: justify;
+  display: table;
+  width: 80%;
+  margin-inline: auto;
+}
+
+.dragged-files-wrapper {
+  height: 10%;
+  //display: inline-flex;
+  align-items: center;
+  border: dotted 1px $grey;
+  color: $black;
+  margin-inline: auto;
+  padding-top: 2%;
+  padding-top: 1%;
+}
+
+.button-icon {
+  display: contents;
+  align-items: right !important;
+  height: 10px;
+  width: 10px;
+}
+
+.clickeable {
+  cursor: pointer;
+}
+
+.progress-cont {
+  height: 7px;
+  margin-inline: unset;
+  background-color: #d0d0d0;
+  position: relative;
+
+  .progress {
+    width: 0;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    border-radius: 4px;
+    background-color: $green;
+    transition: 0.5s all;
+  }
+
+  .progress-red {
+    width: 0;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    border-radius: 4px;
+    background-color: $red;
+    transition: 0.5s all;
+  }
+}
+
+.cancel-icon {
+  vertical-align: middle;
+}

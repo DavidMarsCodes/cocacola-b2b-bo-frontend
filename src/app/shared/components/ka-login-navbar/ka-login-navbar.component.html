@@ -1,0 +1,14 @@
+<nav class="navbar navbar-expand navbar-light fixed-top">
+  <a routerLink="/" class="navbar-brand">
+    <img class="logoAndina m-3" src="assets/media/cocacola-andina.png" alt="" />
+  </a>
+
+  <div class="collapse navbar-collapse" id="navbarsExample05">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active">
+        <app-ka-select-country *ngIf="hasSelectCountry" [readonly]="true"></app-ka-select-country>
+        <a *ngIf="hasBackButton" class="dark-link text pr-4" (click)="goPreviousStep()">Volver</a>
+      </li>
+    </ul>
+  </div>
+</nav>

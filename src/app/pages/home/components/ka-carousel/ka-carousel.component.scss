@@ -1,0 +1,22 @@
+.picsum-img-wrapper {
+  text-align: center;
+  img {
+    max-width: 100%;
+  }
+}
+
+::ng-deep {
+  .carousel-control-next-icon {
+    background-image: url('/assets/icons/arrow-right.svg');
+  }
+  .carousel-indicators {
+    display: none;
+  }
+  .carousel-control-prev-icon {
+    background-image: url('/assets/icons/arrow-left.svg');
+  }
+  .carousel-control-next,
+  .carousel-control-prev {
+    display: none;
+  }
+}

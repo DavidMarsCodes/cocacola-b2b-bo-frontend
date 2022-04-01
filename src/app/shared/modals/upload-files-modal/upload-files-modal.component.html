@@ -1,0 +1,43 @@
+<div class="modal-header">
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+<div class="modal-body mat-dialog-container">
+  <h3>{{ ROOT_LANG + 'CARGA' | translate }}</h3>
+  <h4>{{ ROOT_LANG + 'FORMATO' | translate }}</h4>
+  <br />
+  <div draggable="true" class="{{ dragAreaClass }}" fileDragDrop (filesChangeEmiter)="onFileChange($event)">
+    <div class="text-wrapper">
+      <div class="centered">
+        <img class="not-found-img" src="/assets/media/upload-files.png" alt="" />
+        <input type="file" name="file" id="file" accept="text/csv,application/vnd.ms-excel" style="display: none" (change)="onFileChange($event.target.files)" />
+        <label for="file" class="btn-square clickeable">{{ ROOT_LANG + 'ADJUNTAR' | translate }}</label>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer file-modal-footer row" >
+  <div *ngIf="file">
+    <h4>Cargando</h4>
+    <div class="file dragged-files-wrapper" *ngIf="!cancelled">
+      <span>{{ file.name }} - {{ formatPercent(upload.percent) }} %</span>
+      <button mat-icon-button class="button-icon" (click)="pauseUpload()" *ngIf="upload.percent !== 100">
+        <mat-icon *ngIf="!paused">pause_circle_filled</mat-icon>
+        <mat-icon *ngIf="paused">play_circle_filled</mat-icon>
+      </button>
+      <button mat-icon-button class="button-icon" color="warn" (click)="cancelUpload()" *ngIf="upload.percent !== 100">
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </div>
+    <div class="file dragged-files-wrapper" *ngIf="cancelled">
+      <span>{{ file.name }} - Cancelado </span>
+      <mat-icon class="cancel-icon col-2" color="warn">cancel</mat-icon>
+    </div>
+    <div class="progress-cont">
+      <div *ngIf="!cancelled" class="progress" [style.width]="upload.percent + '%'"></div>
+      <div *ngIf="cancelled" class="progress-red" [style.width]="100 + '%'"></div>
+    </div>
+  </div>
+</div>

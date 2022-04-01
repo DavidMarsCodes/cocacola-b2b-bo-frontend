@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-light w-100 px-3 align-items-center justify-content-between pt-0">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+    id="navbar-menu-mobile"
+  >
+    <div class="navbar-toggler-icon d-flex align-items-center">
+      <fa-icon [icon]="['fas', 'bars']"></fa-icon>
+    </div>
+  </button>
+
+  <img class="logoAndina d-block d-lg-none p-3" src="assets/media/cocacola-andina.png" alt="" />
+
+  <div class="mobile d-block d-lg-none">
+  </div>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="desktop-nav w-100 d-flex flex-row justify-content-between">
+      <div></div>
+      <ul class="navbar-nav d-none d-lg-flex">
+        <li class="nav-item dropdown pt-2">
+          <app-ka-select-country [readonly]="true"></app-ka-select-country>
+        </li>
+      </ul>
+    </div>
+    <div class="d-block d-lg-none">
+      <app-ka-navbar-menu-mobile></app-ka-navbar-menu-mobile>
+    </div>
+  </div>
+</nav>

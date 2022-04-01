@@ -1,0 +1,436 @@
+@import 'variables';
+
+:host {
+  width: 100%;
+}
+
+.home {
+  height: 100vh;
+  background-color: $light-grey;
+  padding: 1rem;
+  @media (max-width: $lg) {
+    height: calc(100vh - 117px);
+    background-color: $white;
+  }
+  @supports (-webkit-touch-callout: none) {
+    height: calc(100vh - 160px);
+
+    @media only screen and (-webkit-device-pixel-ratio: 2) {
+      padding-top: 10px !important;
+    }
+
+    @media only screen and (min-device-width: 420px) and (-webkit-device-pixel-ratio: 3) {
+      height: calc(100vh - 200px);
+    }
+  }
+  @media (max-width: $lg) {
+    padding: 1rem 0;
+  }
+  .carousel {
+    @media (max-width: $lg) {
+      margin-bottom: 25px !important;
+    }
+  }
+  .title {
+    font-weight: bold;
+    font-size: 1.8rem;
+    line-height: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    margin-bottom: 1rem;
+  }
+  .client {
+    font-weight: bold;
+    font-size: 1.6rem;
+
+    margin-bottom: 1rem;
+  }
+  .link-button {
+    font-size: 1.3rem;
+    line-height: 2rem;
+    cursor: pointer;
+    svg {
+      color: $red;
+      width: 1.5rem;
+    }
+  }
+  .hello {
+    font-weight: bold;
+    font-size: 2.2rem;
+    line-height: 2.4rem;
+  }
+  .hello-address {
+    font-weight: normal;
+    font-size: 2rem;
+    line-height: 2.4rem;
+  }
+  .widgets {
+    div {
+      @media (max-width: $lg) {
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+.mat-elevation-z8 {    
+  overflow-x: auto;
+ }
+
+.primary-filters {
+  select {
+    max-width: none;
+    margin: 0 0.5rem;
+    font-weight: bold;
+
+    &.btn-square {
+      border: 1px solid $grey;
+    }
+    &.btn-square-red {
+      border: 1px solid $red;
+    }
+    @media (max-width: $lg) {
+      margin-bottom: 0 !important;
+    }
+    @media (max-width: $sm) {
+      font-size: 10px;
+    }
+  }
+  input {
+    max-width: none;
+    margin: 0 0.5rem;
+    font-weight: bold;
+
+    &.btn-square {
+      border: 1px solid $grey;
+    }
+    &.btn-square-red {
+      border: 1px solid $red;
+    }
+    @media (max-width: $lg) {
+      margin-bottom: 0 !important;
+    }
+    @media (max-width: $sm) {
+      font-size: 10px;
+    }
+  }
+  button {
+    //max-width: none;
+    margin: 0 1.5rem;
+    font-weight: bold;
+
+    &.btn-square {
+      border: 1px solid $grey;
+    }
+    &.btn-square-red {
+      border: 1px solid $red;
+    }
+    @media (max-width: $lg) {
+     // margin-bottom: 0 !important;
+    }
+    @media (max-width: $sm) {
+      font-size: 15px;
+    }
+  }
+}
+
+app-ka-consent-footer {
+  position: fixed;
+  bottom: 0;
+  width: 62%;
+  @media (max-width: $xl) {
+    width: 55%;
+  }
+  @media (max-width: $lg) {
+    width: 100%;
+    bottom: 64px;
+  }
+}
+
+.white-icon {
+  color: white;
+}
+/* Note: If you're using an SVG icon, you should make the class target the `<svg>` element */
+.white-icon svg {
+  fill: white;
+}
+
+.icon-red {
+  -webkit-text-fill-color:#de0b1c
+}
+
+mat-datepicker-toggle {
+  display: inline-block;
+}
+
+
+mat-form-field.mat-form-field {
+  font-size: 14px;
+  margin-left: 20px;
+  border-style: solid; 
+  border-width: 2px;
+  border-color: #eee;
+  background: #fff !important;
+  box-shadow: 0px 0px 0px #eee !important;
+  color: $black !important;
+  //padding: 20px;
+   width: 48rem;
+   //max-width: 550rem;
+   //height: 4rem;
+   left: -11px; 
+}
+
+.max-width {
+  width: 100rem !important;
+}
+
+
+.min-width {
+  width: 33rem !important;
+}
+
+.form-group {
+  margin-bottom: 2rem;
+}
+
+.label {    
+  font-weight: bolder;
+  font-size: 1.4rem;
+  padding: 5px;
+
+}
+
+.btn-new-order[_ngcontent-uru-c411] {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0.95rem;
+    border-bottom-right-radius: calc(0.3rem - 1px);
+    border-bottom-left-radius: calc(0.3rem - 1px);
+}
+
+
+
+table {
+  width: 100%;
+}
+
+tr.ak-detail-row {
+  height: 0;
+}
+
+.example-full-width {
+  width: 80%;
+}
+
+td {
+  padding-right: 8px;
+}
+
+tr.ka-element-row:not(.ak-expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.ka-element-row:not(.ka-expanded-row):active {
+  background: #efefef;
+}
+
+.ka-element-row td {
+  border-bottom-width: 0;
+}
+
+.ka-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.ka-element-diagram {
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 104px;
+}
+
+.ka-detail-row {
+  height: 0;
+  padding: 1.5rem;
+  line-height: 2.2rem;
+  border: none;
+}
+
+.ka-element-description {
+  padding: 16px;
+}
+
+.expanded-icon {
+  transition: 300ms;
+  transform: rotate(0deg);
+}
+
+.mat-icon {
+  color: $black !important;
+  font-weight: 700;
+}
+
+.collapse-icon {
+  transition: 300ms;
+  transform: rotate(180deg);
+}
+
+.border-top-red {
+  //border-top-color: $red !important;
+  border-top-width: thick !important;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+}
+.subtitle {
+  font-weight: normal;
+  font-size: 2.2rem;
+  line-height: 2.4rem;
+}
+
+.icon-ka-sidebar {
+  color: $red;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  vertical-align: bottom;
+}
+.ka-table-border {
+  border-bottom-left-radius: 5rem;
+  border-bottom-right-radius: 5rem;
+}
+
+.legals {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-left: 2rem;
+}
+.background-legals {
+  background-color: white;
+  border-bottom-right-radius: 10%;
+  border-bottom-left-radius: 10%;
+}
+.svg-container {
+  background-color: $red;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.disabled {
+  background-color: whitesmoke;
+}
+
+.svg-container-disabled {
+  background-color: $dark-grey;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+.svg {
+  width: 1.7rem;
+  height: 1.7rem;
+  color: $white;
+  position: relative;
+  top: 0.4rem;
+  @media (max-width: $lg) {
+    display: none;
+  }
+}
+
+.btn-new-order {
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.95rem;
+  border-bottom-right-radius: calc(0.3rem - 1px);
+  border-bottom-left-radius: calc(0.3rem - 1px);
+}
+
+.no-data {
+  text-align: center;
+  font-size: 2rem;
+  color: grey;
+  padding: 12px 12px 12px 12px;
+}
+.badge-percent {
+  width: 25px !important;
+  height: 25px !important;
+}
+.message {
+  font-weight: normal;
+  font-size: 1.5rem;
+  line-height: 2.4rem;
+  width: 85%;
+}
+
+.ka-disabled {
+  color: grey;
+  background-color: whitesmoke;
+  border-bottom-style: none !important;
+}
+
+.ka-table {
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.mat-icon {
+  font-size: 2.2rem !important;
+  color: $dark-grey;
+}
+
+.selectAltura2 {
+  font-size: 1.5rem !important;
+}
+
+
+.btn-icon-ex {
+  border: none;
+  background-color: transparent;
+  height: 20px !important;
+  width: 20px !important;
+  line-height: 2.4rem !important;
+}
+.right-align {
+  float: right;
+}
+
+.align_text_label {
+  margin-left: 5%;
+  margin-right: 5%;
+  border: none;
+}
+
+.white-bg {
+  background-color: white;
+}
+.discount-name {
+  background-color: whitesmoke !important;
+}
+
+.blue-link {
+  font-size: 1.6rem;
+}
+.header {
+  font-weight: bold;
+  color: black;
+  font-size: 1.4rem;
+  padding: 18px 18px 18px 0;
+}
+@media (max-width: 992px) {
+  .header {
+    font-size: 1.8rem;
+  }
+}
+
